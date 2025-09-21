@@ -5,7 +5,7 @@ const AuthContainer = ({children}) => {
   return (
     <div className={styles.authBlock} data-testid="auth-container">
       <div className={styles.authHeader}>
-        <p>Employee Leave Management System</p>
+        <p>Employees Leave Management System</p>
       </div>
       <div data-testid="auth-content">
         {children}

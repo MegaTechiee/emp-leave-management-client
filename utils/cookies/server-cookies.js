@@ -14,11 +14,15 @@ export const setCookieServer = async ({ name, value, maxAgeSeconds = 60*60*1, pa
   });
 };
 
-export const clearCookieServer = async ({ name, path = "/", domain }) => {
+export const clearCookieServer = async ({ name, path = "/", httpOnly = false, secure = false, sameSite = "lax", domain }) => {
   const cookieStore = await cookies();
+  console.log('gettng inside server-cookies clearCookieServer');
   cookieStore.delete({
     name,
     path,
+    httpOnly,
+    secure,
+    sameSite,
     domain,
   });
 };

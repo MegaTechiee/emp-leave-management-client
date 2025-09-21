@@ -68,6 +68,19 @@ const adminRootSidebarItems = [
   },
 ]
 
+export const logoutSidebarItem = {
+  title: "Logout",
+  url: "/api/logout", // this points to the API route
+  icon: {
+    src: "/sidebar-icons/log-out.svg",
+    alt: "Logout Icon",
+    width: 20,
+    height: 20
+  },
+  isExternal: true // optional flag to indicate server redirect
+}
+
+
 const rootSidebarItems = isAdmin ? adminRootSidebarItems : empRootSidebarItems;
 
 export default rootSidebarItems;

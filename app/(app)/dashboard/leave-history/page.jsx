@@ -1,10 +1,10 @@
+import LeaveHistoryView from '@/components/Employee/LeaveHistory/LeaveHistoryView/LeaveHistoryView'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-      <h1>leave history</h1>
-      
+      <LeaveHistoryView />
     </div>
   )
 }

@@ -7,6 +7,12 @@ export const authUIPaths = {
 
 export const appTabsUIPaths = {
   dashboard: "/dashboard",
+  applyLeave: "/dashboard/apply-leave",
+  leaveBalance: "/dashboard/leave-balance",
+  leaveHistory: "/dashboard/leave-history",
+  empDetails: "/dashboard/emp-details",
+  pendingLeaveReqs: "/dashboard/pending-leave-reqs",
+  manageLeaveBalance: "/dashboard/manage-leave-balance",
 };
 
 export const roleRoutes = {

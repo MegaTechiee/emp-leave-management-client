@@ -20,7 +20,10 @@ export async function POST(req) {
       await setCookieServer({
         name: "role",
         value: result.data.role,
+        path: "/",
+        httpOnly: false,
         secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
       });
       return NextResponse.json({ success: true });
     } else {

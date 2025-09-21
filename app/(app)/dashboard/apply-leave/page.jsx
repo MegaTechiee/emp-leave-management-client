@@ -1,10 +1,12 @@
 import React from 'react'
+import ApplyLeaveForm from '@/components/Employee/ApplyLeave/ApplyLeaveForm/ApplyLeaveForm'
+import WelcomeUser from '@/components/Shared/UI/WelcomeUser/WelcomeUser'
 
 const page = () => {
   return (
     <div>
-      <h1>Apply Leave</h1>
-      
+      <WelcomeUser />
+      <ApplyLeaveForm />
     </div>
   )
 }

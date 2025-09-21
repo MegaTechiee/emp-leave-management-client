@@ -1,10 +1,10 @@
+import LeaveBalanceView from '@/components/Employee/LeaveBalance/LeaveBalanceView/LeaveBalanceView'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-      <h1>leave balance</h1>
-      
+      <LeaveBalanceView />
     </div>
   )
 }

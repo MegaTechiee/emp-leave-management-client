@@ -2,12 +2,13 @@ import React from "react";
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarMenu
 } from "@/components/Shared/UI/Shadcn/sidebar"
 
-import rootSidebarItems from "@/constants/literals/sidebar";
+import rootSidebarItems, { logoutSidebarItem } from "@/constants/literals/sidebar";
 import styles from './RootSidebar.module.css';
 import SidebarNavItem from "./SubComponents/SidebarNavItem/SidebarNavItem";
 
@@ -35,6 +36,15 @@ const RootSidebar = () => {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        <SidebarMenu data-testid="sidebar-menu">
+          <SidebarNavItem 
+              key={logoutSidebarItem.title}
+              {...logoutSidebarItem}
+              data-testid="sidebar-nav-item"
+            />
+        </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
   )
 }
