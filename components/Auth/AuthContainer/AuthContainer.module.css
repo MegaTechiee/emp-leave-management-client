@@ -1,0 +1,22 @@
+.authBlock {
+  width: 34rem;
+  /* height: 100%; */
+  min-height: 20rem;
+  max-height: 100%;
+  border-radius: 16px;
+  background: #FFFFFF;
+  border: 1px solid #E4E4E7;
+  box-shadow: 
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1),
+    0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.authHeader {
+  width: 100%;
+  font-size: 27px;
+  font-weight: 500;
+  color: rgb(14, 35, 74);
+  text-align: center;
+  
+}

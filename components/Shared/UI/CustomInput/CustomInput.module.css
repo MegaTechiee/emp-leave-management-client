@@ -1,0 +1,46 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 14px;
+  padding-bottom: 0.5rem;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hasRightElement {
+  padding-right: 2.5rem;
+}
+
+.rightElement {
+  position: absolute;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.error {
+  color: #ff0000;
+  font-size: 12px;
+  margin-left: 5px;
+
+  height: 12px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.errorVisible {
+  opacity: 1;
+}
+
+.inputError {
+  border-color: #ff0000;
+}
