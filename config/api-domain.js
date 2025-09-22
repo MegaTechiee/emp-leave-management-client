@@ -1,0 +1,2 @@
+export const NEXT_PUBLIC_API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+export const NEXT_SERVER_API_BASE_URL = process.env.NEXT_SERVER_API_BASE_URL;

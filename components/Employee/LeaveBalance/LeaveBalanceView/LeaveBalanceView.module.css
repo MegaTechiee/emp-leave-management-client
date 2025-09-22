@@ -1,0 +1,35 @@
+.page {
+  padding: 2rem;
+}
+
+.heading {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.cards {
+  display: flex;
+  gap: 2rem;
+}
+
+.card {
+  flex: 1;
+  text-align: center;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb; /* Tailwind gray-200 */
+  border-radius: 0.5rem;
+  background-color: #f9fafb; /* Tailwind gray-50 */
+}
+
+.balance {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937; /* Tailwind slate-800 */
+}
+
+.message {
+  text-align: center;
+  color: red;
+  margin-top: 2rem;
+}

@@ -1,7 +1,7 @@
 {
   "name": "emp-leave-management-client",
   "dockerComposeFile": "docker-compose.yml",
-  "service": "app",
+  "service": "frontend",
   "workspaceFolder": "/home/app",
   // "shutdownAction": "stopCompose",
   "shutdownAction": "none",
