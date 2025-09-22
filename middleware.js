@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getAuthCookie } from './lib/auth/auth-cookies';
 import { getCookieServer } from './utils/cookies/server-cookies';
-import { roleRoutes } from './constants/literals/ui-paths';
+import { authUIPaths, appTabsUIPaths, roleRoutes } from './constants/literals/ui-paths';
 
 export const middleware = async (req) => {
   const token = await getAuthCookie(req); // auth token
@@ -9,31 +9,31 @@ export const middleware = async (req) => {
   const { pathname } = req.nextUrl;
 
   // Public routes
-  const authPublicRoutes = ['/login', '/emp-signup', '/admin-signup'];
+  const authPublicRoutes = [authUIPaths.login, authUIPaths.empSignup, authUIPaths.adminSignup];
   const isAuthPublicRoute = authPublicRoutes.some((route) => pathname.startsWith(route));
 
   // Root redirect
   if (pathname === '/') {
-    return NextResponse.redirect(new URL(token ? '/dashboard' : '/login', req.url));
+    return NextResponse.redirect(new URL(token ? appTabsUIPaths.dashboard : authUIPaths.login, req.url));
   }
 
   // Authenticated users should not see auth public routes
   if (token && isAuthPublicRoute) {
-    return NextResponse.redirect(new URL('/dashboard', req.url));
+    return NextResponse.redirect(new URL(appTabsUIPaths.dashboard, req.url));
   }
 
   // Protect all private routes
   if (!token && !isAuthPublicRoute) {
-    return NextResponse.redirect(new URL('/login', req.url));
+    return NextResponse.redirect(new URL(authUIPaths.login, req.url));
   }
 
   // Role-based access
   if (token && pathname.startsWith('/dashboard')) {
     if (role === 'admin' && !roleRoutes.admin.includes(pathname)) {
-      return NextResponse.redirect(new URL('/dashboard/emp-details', req.url));
+      return NextResponse.redirect(new URL(appTabsUIPaths.empDetails, req.url));
     }
     if (role === 'employee' && !roleRoutes.employee.includes(pathname)) {
-      return NextResponse.redirect(new URL('/dashboard/apply-leave', req.url));
+      return NextResponse.redirect(new URL(appTabsUIPaths.applyLeave, req.url));
     }
   }
 

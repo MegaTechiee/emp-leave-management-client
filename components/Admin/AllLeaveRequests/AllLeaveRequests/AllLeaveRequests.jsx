@@ -1,5 +1,7 @@
 'use client'
-
+// Due to time contraints, this component
+// can be made generic for both admin(all leave requests) and employee(leave history) with minor changes
+// by passing props to fetch data from different endpoints and display different columns
 import { useEffect, useState } from "react"
 import { format } from "date-fns"
 import {
@@ -11,23 +13,23 @@ import {
   TableRow,
 } from "@/components/Shared/UI/Shadcn/table"
 import { Badge } from "@/components/Shared/UI/Shadcn/badge"
-import styles from "./LeaveHistoryView.module.css"
+import styles from "@/components/Employee/LeaveHistory/LeaveHistoryView/LeaveHistoryView.module.css"
 import { getAPIClient } from "@/lib/api/http-methods-client"
-import empEndpoints from "@/constants/api/employee/emp.endpoints"
+import adminEndpoints from "@/constants/api/admin/admin.endpoints"
 
-export default function LeaveHistoryPage() {
-  const [history, setHistory] = useState([])
+export default function AllLeaveRequests() {
+  const [leaves, setLeaves] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
 
   useEffect(() => {
-    const fetchHistory = async () => {
+    const fetchLeaves = async () => {
       try {
         setLoading(true)
-        const rawResponse = await getAPIClient(empEndpoints.getLeaveHistory)
+        const rawResponse = await getAPIClient(adminEndpoints.getAllLeaveRequests)
         const result = await rawResponse.json()
-        if (result.success) setHistory(result.data.history)
-        else setError(result.message || "Failed to fetch leave history")
+        if (result.success) setLeaves(result.data.leaves)
+        else setError(result.message || "Failed to fetch leave data")
       } catch (err) {
         setError(err.message)
       } finally {
@@ -35,7 +37,7 @@ export default function LeaveHistoryPage() {
       }
     }
 
-    fetchHistory()
+    fetchLeaves()
   }, [])
 
   const getStatusColor = (status) => {
@@ -55,16 +57,23 @@ export default function LeaveHistoryPage() {
         <Table>
           <TableHeader>
             <TableRow className={styles.tableRowHeader}>
+              <TableHead className={styles.tableHeaderCell}>Employee</TableHead>
+              <TableHead className={styles.tableHeaderCell}>Employee ID</TableHead>
+              <TableHead className={styles.tableHeaderCell}>Department</TableHead>
               <TableHead className={styles.tableHeaderCell}>From Date</TableHead>
               <TableHead className={styles.tableHeaderCell}>To Date</TableHead>
               <TableHead className={styles.tableHeaderCell}>Leave Type</TableHead>
               <TableHead className={styles.tableHeaderCell}>Reason</TableHead>
               <TableHead className={styles.tableHeaderCell}>Status</TableHead>
+              <TableHead className={styles.tableHeaderCell}>Admin Note</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {history.map((leave) => (
+            {leaves.map((leave) => (
               <TableRow key={leave._id} className={styles.tableRow}>
+                <TableCell className={styles.tableCell}>{leave.employee.name}</TableCell>
+                <TableCell className={styles.tableCell}>{leave.employee.employeeId}</TableCell>
+                <TableCell className={styles.tableCell}>{leave.employee.department}</TableCell>
                 <TableCell className={styles.tableCell}>
                   {format(new Date(leave.startDate), "dd MMM yyyy")}
                 </TableCell>
@@ -74,9 +83,12 @@ export default function LeaveHistoryPage() {
                 <TableCell className={styles.tableCell}>{leave.leaveType}</TableCell>
                 <TableCell className={styles.tableCell}>{leave.reasonType}</TableCell>
                 <TableCell className={styles.tableCell}>
-                  <Badge style={{background: getStatusColor(leave.status)}} className={styles.badge}>
+                  <Badge style={{ background: getStatusColor(leave.status) }} className={styles.badge}>
                     {leave.status}
                   </Badge>
+                </TableCell>
+                <TableCell className={styles.tableCell}>
+                  {leave.adminComment || "-"}
                 </TableCell>
               </TableRow>
             ))}

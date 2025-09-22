@@ -8,11 +8,12 @@ import {
   SidebarMenu
 } from "@/components/Shared/UI/Shadcn/sidebar"
 
-import rootSidebarItems, { logoutSidebarItem } from "@/constants/literals/sidebar";
+import { getSidebarItemsSSR } from "@/constants/literals/sidebar";
 import styles from './RootSidebar.module.css';
 import SidebarNavItem from "./SubComponents/SidebarNavItem/SidebarNavItem";
 
-const RootSidebar = () => {
+const RootSidebar = async () => {
+  const { rootSidebarItems, logoutSidebarItem } = await getSidebarItemsSSR();
   
   return (
     <Sidebar 

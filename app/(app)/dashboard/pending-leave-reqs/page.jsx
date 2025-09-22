@@ -1,10 +1,10 @@
 import React from 'react'
+import PendingLeaveRequestsPage from '@/components/Admin/PendingLeaveRequests/PendingLeaveRequestsPage/PendingLeaveRequestsPage';
 
 const page = () => {
   return (
     <div>
-      <h1>pending leave reqs</h1>
-      
+      <PendingLeaveRequestsPage />
     </div>
   )
 }

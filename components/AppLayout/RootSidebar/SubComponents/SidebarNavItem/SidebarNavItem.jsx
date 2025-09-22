@@ -23,7 +23,9 @@ const SidebarNavItem = (item) => {
           </a>
         ) : (
           <Link href={item.url}>
-            <Image src={item.icon.src} alt={item.icon.alt} width={item.icon.width} height={item.icon.height} />
+            {
+              item.icon && <Image src={item.icon.src} alt={item.icon.alt} width={item.icon.width} height={item.icon.height} />  
+            }
             <span className="text-base">{item.title}</span>
           </Link>
         )}

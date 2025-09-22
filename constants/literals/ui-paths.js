@@ -12,14 +12,14 @@ export const appTabsUIPaths = {
   leaveHistory: "/dashboard/leave-history",
   empDetails: "/dashboard/emp-details",
   pendingLeaveReqs: "/dashboard/pending-leave-reqs",
-  manageLeaveBalance: "/dashboard/manage-leave-balance",
+  allLeaveReqs: "/dashboard/all-leave-reqs",
 };
 
 export const roleRoutes = {
   admin: [
     '/dashboard/emp-details',
     '/dashboard/pending-leave-reqs',
-    '/dashboard/manage-leave-balance',
+    '/dashboard/all-leave-reqs',
   ],
   employee: [
     '/dashboard/apply-leave',

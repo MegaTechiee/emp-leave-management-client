@@ -1,10 +1,11 @@
 import React from 'react'
-
+import EmployeeDetailsPage from '@/components/Admin/EmployeeDetails/EmployeeDetailsPage/EmployeeDetailsPage'
+import WelcomeUser from '@/components/Shared/UI/WelcomeUser/WelcomeUser'
 const page = () => {
   return (
     <div>
-      <h1>emp details</h1>
-      
+      <WelcomeUser />
+      <EmployeeDetailsPage />
     </div>
   )
 }
