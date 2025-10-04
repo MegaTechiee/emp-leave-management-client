@@ -1,0 +1,66 @@
+/* Built LAYOUT with CSS Grid for full structural control */
+/* === GRID app-layout === */
+
+.app-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "app-layout-header"
+    "app-layout-sidebar-provider"
+    "app-layout-footer";
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+
+/* === GRID AREAS === */
+
+.app-layout-header {
+  grid-area: app-layout-header;
+  min-height: 7%;
+  max-height: 17%;
+}
+
+.app-layout-sidebar-provider{
+  min-height: 100%;
+  display: grid;
+  grid-area: app-layout-sidebar-provider;
+  grid-template-columns: 14rem 1fr;
+  grid-template-areas: "app-layout-sidebar app-layout-main";
+  width: 100%;
+}
+
+.app-layout-sidebar {
+  height: 100%;
+  grid-area: app-layout-sidebar;
+}
+
+.app-layout-main {
+  height: 100%;
+  grid-area: app-layout-main;
+  margin: 30px;
+  min-height: 0; /* prevent double scroll issues */
+}
+
+.app-layout-footer {
+  grid-area: app-layout-footer;
+  min-height: 3%;
+  max-height: 6%;
+}
+
+/* === RESPONSIVE (NO SIDEBAR ON SMALL SCREENS) === */
+
+@media (max-width: 768px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "app-layout-header"
+      "app-layout-main"
+      "app-layout-footer";
+  }
+
+  .app-layout-sidebar {
+    display: none;
+  }
+}

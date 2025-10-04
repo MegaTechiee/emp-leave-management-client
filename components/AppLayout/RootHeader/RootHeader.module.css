@@ -1,0 +1,26 @@
+.header {
+  height: fit-content;
+}
+
+.bannerImg {
+  height: 75px;
+  width: 110px;
+}
+
+.bannerBlock {
+  height: fit-content;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1%;
+  border-bottom: 1px solid #E4E4E7;
+  background: #e6e6ea;
+}
+
+.bannerText {
+  font-weight: 700;
+  font-size: 45px;
+  color: #052849;
+  line-height: 100%;
+}

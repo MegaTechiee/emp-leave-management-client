@@ -1,0 +1,10 @@
+.welcome {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #111827; /* Tailwind gray-900 equivalent */
+}
+
+.name {
+  color: #1054c3; /* Tailwind blue-500 equivalent */
+}

@@ -1,0 +1,49 @@
+.dialogContent {
+  max-width: 28rem; /* slightly wider for comfort */
+  padding: 1.5rem;  /* added padding inside the dialog */
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; /* spacing between label and input */
+  margin-bottom: 1.25rem;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.select {
+  width: 170px; 
+  padding: 5px;
+}
+
+
+
+.error {
+  color: #bb0e0e;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  height: 1rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.actions button {
+  min-width: 5rem; /* consistent button size */
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
